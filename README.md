@@ -11,7 +11,7 @@
 High Cards(ハイ・カード)                               | 何も成立しない               | C-A D-2 H-3 S-4 S-5
 One Pair(ワンペア)                                     | 2枚同じ数字が1セット         | C-A D-A H-3 S-4 S-5
 Two Pair(ツーペア)                                     | 2枚同じ数字が2セット         | C-A D-A H-3 S-3 S-5
-Three Of A Kind(スリーカード)                          | 3枚同じマーク                | C-A C-2 C-3 S-4 S-5
+Three Of A Kind(スリーカード)                          | 3枚同じ数字                  | C-A D-A H-A S-4 S-5
 Straight(ストレート)                                   | 数字が階段で5枚              | C-2 D-3 H-4 S-5 S-6
 Flush(フラッシュ)                                      | 5枚同じマーク                | C-A C-2 C-3 C-4 C-5
 Full House(フルハウス)                                 | 2枚同じ数字＋3枚同じ数字     | C-A D-A H-3 S-3 S-3
