@@ -1,5 +1,6 @@
 object Main {
   def main(args: Array[String]) {
-    val player = Player("H-5 S-5 D-2 S-4 C-A")
+    val player = Player("H-A S-K D-J S-10 C-Q")
+    player.judge
   }
 }
