@@ -15,7 +15,7 @@ Three Of A Kind(スリーカード)                          | 3枚同じ数字 
 Straight(ストレート)                                   | 数字が階段で5枚              | C-2 D-3 H-4 S-5 S-6
 Flush(フラッシュ)                                      | 5枚同じマーク                | C-A C-2 C-3 C-4 C-5
 Full House(フルハウス)                                 | 2枚同じ数字＋3枚同じ数字     | C-A D-A H-3 S-3 S-3
-Four Of A Kind(フォーカード)                           | 4枚同じマーク                | C-A D-A H-A S-A S-5
+Four Of A Kind(フォーカード)                           | 4枚同じ数字                  | C-A D-A H-A S-A S-5
 Straight Flush(ストレート・フラッシュ)                 | 同じマークで階段5枚          | C-2 C-3 C-4 C-5 C-6
 Royal Straight Flush(ロイヤル・ストレート・フラッシュ) | Aが入って同じマークで階段5枚 | C-10 C-J C-Q C-K C-A
 
