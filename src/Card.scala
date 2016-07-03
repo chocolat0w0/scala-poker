@@ -1,6 +1,19 @@
-case class Card(str: String) {
+case class Card(str: String)  extends Ordered[Card] {
   val suit:Suit = Suit.create(str.split("-")(0))
   val rank = Rank.create(str.split("-")(1))
+
+  /**
+    * カードの強さを比較する。強さの比較はrankが優先する。
+    * @param that 比較対象のカード
+    * @return 負の数:自分が強い/正の数:相手が強い
+    */
+  override def compare(that: Card): Int = {
+    (rank.strength - that.rank.strength, suit.strength - that.suit.strength) match {
+      case (r, _) if r < 0 => r
+      case (r, s) if r == 0 => s
+      case (r, _) => r
+    }
+  }
 }
 
 sealed abstract case class Suit(label: String, strength: Int)
