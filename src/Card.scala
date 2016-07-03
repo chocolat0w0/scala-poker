@@ -1,12 +1,12 @@
 case class Card(str: String) {
   val suit:Suit = Suit.create(str.split("-")(0))
-  val rank = "数字"
+  val rank = Rank.create(str.split("-")(1))
 }
 
 sealed abstract case class Suit(label: String, strength: Int)
 object Suit {
   /**
-    * 指定されたマーク記号に対応するスートクラスを生成します。
+    * 指定されたマーク記号に対応するスートを生成します。
     * 異常なマーク記号の場合は、一番弱いスートを返しておきます。
     * @param str マーク記号
     * @return スートクラス
@@ -27,3 +27,44 @@ object Suit {
   object Spade	extends Suit("S", 4)
 }
 
+sealed abstract case class Rank(label: String, strength: Int)
+object Rank {
+  /**
+    * 指定された数字記号に対応するランクを生成します。
+    * 異常な数字記号の場合は、一番弱いランクを返しておきます。
+    * @param str 数字記号
+    * @return ランククラス
+    */
+  def create(str: String): Rank = {
+    str match {
+      case "2" => Deuce
+      case "3" => Trey
+      case "4" => Four
+      case "5" => Five
+      case "6" => Six
+      case "7" => Seven
+      case "8" => Eight
+      case "9" => Nine
+      case "10" => Ten
+      case "J" => Jack
+      case "Q" => Queen
+      case "K" => King
+      case "A" => Ace
+      case _ => Deuce
+    }
+  }
+
+  object Deuce extends Rank("2", 2)
+  object Trey extends Rank("3", 3)
+  object Four extends Rank("4", 4)
+  object Five extends Rank("5", 5)
+  object Six extends Rank("6", 6)
+  object Seven extends Rank("7", 7)
+  object Eight extends Rank("8", 8)
+  object Nine extends Rank("9", 9)
+  object Ten extends Rank("10", 10)
+  object Jack extends Rank("J", 11)
+  object Queen extends Rank("Q", 12)
+  object King extends Rank("K", 13)
+  object Ace extends Rank("A", 14)
+}
