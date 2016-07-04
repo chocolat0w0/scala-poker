@@ -4,7 +4,7 @@ object Main {
 //
     test("S-4 S-Q H-Q H-J H-3", "One Pair", "S-Q")
 //
-//    test("S-4 S-J H-J H-Q H-4", "Two Pair", "S-J")
+    test("S-4 S-J H-J H-Q H-4", "Two Pair", "S-J")
 //
 //    test("S-4 S-Q H-4 H-J H-4", "Three Of A Kind", "S-4")
 
