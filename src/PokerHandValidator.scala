@@ -10,6 +10,7 @@ trait PokerHandValidator {
 
 abstract sealed case class WinningHand(name: String, strength: Int, card: Card)
 class Straight(card: Card) extends WinningHand("Straight", 5, card)
+class Flush(card: Card) extends WinningHand("Flush", 6, card)
 
 object Straight extends PokerHandValidator {
   override def isMatch(cards: Seq[Card]): Option[WinningHand] = {
@@ -18,3 +19,9 @@ object Straight extends PokerHandValidator {
   }
 }
 
+object Flush extends PokerHandValidator {
+  override def isMatch(cards: Seq[Card]): Option[WinningHand] = {
+    if (cards.forall(_.suit.equals(cards.head.suit))) Option(new Flush(cards.last))
+    else None
+  }
+}
