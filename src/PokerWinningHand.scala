@@ -10,11 +10,10 @@ trait PokerWinningHand {
   def isMatch(cards: Array[Card]): Option[(String, Card)]
 }
 
-object StraightFlush extends PokerWinningHand {
+object Straight extends PokerWinningHand {
   override def isMatch(cards: Array[Card]): Option[(String, Card)] = {
-    cards.map(_.rank) match {
-      case Array(Ten, Jack, Queen, King, Ace) => Option(("Strait Flush", cards.last))
-      case _ => None
-    }
+    if (cards.zip(cards.tail).forall { case(x, y) => x.rank.strength  + 1 == y.rank.strength }) Option("Straight", cards.last)
+    else None
   }
 }
+
