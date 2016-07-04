@@ -7,8 +7,7 @@ case class Player(cardsStr: String) {
     */
   def judge: (String, String) = {
     val validator = Seq(Straight, Flush)
-//    TODO: 強い方から判定して、成立したら以降の判定はしないようにできないかな？
-    val winningHand = validator.flatMap(_.isMatch(hands)).last
+    val winningHand = validator.flatMap(_.isValid(hands)).max
     (winningHand.name, winningHand.card.str)
   }
 }
