@@ -19,7 +19,15 @@ object OnePair extends PokerHandValidator {
 object TwoPair extends PokerHandValidator {
   override def isValid(cards: Seq[Card]): Option[WinningHand] = {
     val pair = cards.zip(cards.tail).filter {case (x, y) => x.rank.equals(y.rank)}
-    if (pair.length == 2 && !pair.head._2.equals(pair.last._2)) Option(new TwoPair(pair.last._2))
+    if (pair.length == 2 && !pair.head._1.rank.equals(pair.last._2.rank)) Option(new TwoPair(pair.last._2))
+    else None
+  }
+}
+
+object ThreeOfAKind extends PokerHandValidator {
+  override def isValid(cards: Seq[Card]): Option[WinningHand] = {
+    val pair = cards.zip(cards.tail).filter {case (x, y) => x.rank.equals(y.rank)}
+    if (pair.length == 2 && pair.head._1.rank.equals(pair.last._2.rank)) Option(new ThreeOfAKind(pair.last._2))
     else None
   }
 }
@@ -52,6 +60,7 @@ sealed case class WinningHand(name: String, strength: Int, card: Card) extends O
 }
 class OnePair(card: Card) extends WinningHand("One Pair", 2, card)
 class TwoPair(card: Card) extends WinningHand("Two Pair", 3, card)
+class ThreeOfAKind(card: Card) extends WinningHand("Three Of A Kind", 4, card)
 class Straight(card: Card) extends WinningHand("Straight", 5, card)
 class Flush(card: Card) extends WinningHand("Flush", 6, card)
 class StraightFlush(card: Card) extends WinningHand("Straight Flush", 9, card)
