@@ -10,7 +10,7 @@ object Main {
 
     test("H-2 D-3 S-4 C-5 S-6", "Straight", "S-6")
 
-//    test("H-4 H-Q H-2 H-J H-3", "Flush", "H-Q")
+    test("H-4 H-Q H-2 H-J H-3", "Flush", "H-Q")
 //
 //    test("H-4 H-Q S-Q D-Q H-4", "Full House", "S-Q")
 //
