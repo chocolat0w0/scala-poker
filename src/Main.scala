@@ -6,7 +6,7 @@ object Main {
 //
     test("S-4 S-J H-J H-Q H-4", "Two Pair", "S-J")
 //
-//    test("S-4 S-Q H-4 H-J H-4", "Three Of A Kind", "S-4")
+    test("S-4 S-Q H-4 H-J H-4", "Three Of A Kind", "S-4")
 
     test("H-2 D-3 S-4 C-5 S-6", "Straight", "S-6")
 
