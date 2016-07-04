@@ -14,7 +14,7 @@ object Main {
 //
     test("H-4 H-Q S-Q D-Q H-4", "Full House", "S-Q")
 //
-//    test("H-4 H-Q S-Q D-Q C-Q", "Four Of A Kind", "S-Q")
+    test("H-4 H-Q S-Q D-Q C-Q", "Four Of A Kind", "S-Q")
 //
     test("S-5 S-3 S-6 S-2 S-4", "Straight Flush", "S-6")
 //
