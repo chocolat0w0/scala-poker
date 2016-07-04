@@ -71,6 +71,15 @@ object StraightFlush extends PokerHandValidator {
   }
 }
 
+object RoyalStraightFlush extends PokerHandValidator {
+  override def isValid(cards: Seq[Card]): Option[WinningHand] = {
+    (Straight.isValid(cards), Flush.isValid(cards)) match {
+      case (Some(s), Some(_)) if s.card.rank.equals(Rank.Ace) => Option(new RoyalStraightFlush(s.card))
+      case _ => None
+    }
+  }
+}
+
 sealed case class WinningHand(name: String, strength: Int, card: Card) extends Ordered[WinningHand] {
   override def compare(that: WinningHand): Int = strength - that.strength
 }
@@ -82,4 +91,5 @@ class Flush(card: Card) extends WinningHand("Flush", 6, card)
 class FullHouse(card: Card) extends WinningHand("Full House", 7, card)
 class FourOfAKind(card: Card) extends WinningHand("Four Of A Kind", 8, card)
 class StraightFlush(card: Card) extends WinningHand("Straight Flush", 9, card)
+class RoyalStraightFlush(card: Card) extends WinningHand("Royal Straight Flush", 10, card)
 
