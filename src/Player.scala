@@ -1,7 +1,8 @@
 case class Player(cardsStr: String) {
-  val hands: Array[Card] = cardsStr.split(" ").map(Card(_)).sorted
+  val hands: Seq[Card] = cardsStr.split(" ").map(Card(_)).sorted
 
-  def judge: Unit = {
-    println( Straight.isMatch(hands))
+  def judge: (String, String) = {
+    val winningHand = Straight.isMatch(hands).get
+    (winningHand.name, winningHand.card.str)
   }
 }
