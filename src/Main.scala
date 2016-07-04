@@ -2,7 +2,7 @@ object Main {
   def main(args: Array[String]) {
 //    test("S-4 S-Q H-2 H-J H-3", "High Card", "S-Q")
 //
-//    test("S-4 S-Q H-Q H-J H-3", "One Pair", "S-Q")
+    test("S-4 S-Q H-Q H-J H-3", "One Pair", "S-Q")
 //
 //    test("S-4 S-J H-J H-Q H-4", "Two Pair", "S-J")
 //
