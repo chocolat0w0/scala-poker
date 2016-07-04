@@ -18,7 +18,7 @@ object Main {
 //
     test("S-5 S-3 S-6 S-2 S-4", "Straight Flush", "S-6")
 //
-//    test("S-J S-Q S-A S-K S-10", "Royal Straight Flush", "S-A")
+    test("S-J S-Q S-A S-K S-10", "Royal Straight Flush", "S-A")
   }
 
   def test(input: String, winningHand: String, winningCard: String): Unit = {
