@@ -32,6 +32,14 @@ object ThreeOfAKind extends PokerHandValidator {
   }
 }
 
+object FullHouse extends PokerHandValidator {
+  override def isValid(cards: Seq[Card]): Option[WinningHand] = {
+    val pair = cards.zip(cards.tail).filter {case (x, y) => x.rank.equals(y.rank)}
+    if (pair.length == 3 && !pair.head._1.rank.equals(pair.last._2.rank)) Option(new FullHouse(pair.last._2))
+    else None
+  }
+}
+
 object Straight extends PokerHandValidator {
   override def isValid(cards: Seq[Card]): Option[WinningHand] = {
     if (cards.zip(cards.tail).forall { case(x, y) => x.rank.strength  + 1 == y.rank.strength }) Option(new Straight(cards.last))
@@ -63,5 +71,6 @@ class TwoPair(card: Card) extends WinningHand("Two Pair", 3, card)
 class ThreeOfAKind(card: Card) extends WinningHand("Three Of A Kind", 4, card)
 class Straight(card: Card) extends WinningHand("Straight", 5, card)
 class Flush(card: Card) extends WinningHand("Flush", 6, card)
+class FullHouse(card: Card) extends WinningHand("Full House", 7, card)
 class StraightFlush(card: Card) extends WinningHand("Straight Flush", 9, card)
 
