@@ -8,6 +8,16 @@ trait PokerHandValidator {
   def isValid(cards: Seq[Card]): Option[WinningHand]
 }
 
+object HighCard extends PokerHandValidator {
+  override def isValid(cards: Seq[Card]): Option[WinningHand] = {
+    val pair = cards.zip(cards.tail).filter {case (x, y) => x.rank.equals(y.rank)}
+    (pair.length, Straight.isValid(cards), Flush.isValid(cards)) match {
+      case (0, None, None) => Option(new HighCard(cards.last))
+      case _ => None
+    }
+  }
+}
+
 object OnePair extends PokerHandValidator {
   override def isValid(cards: Seq[Card]): Option[WinningHand] = {
     val pair = cards.zip(cards.tail).filter {case (x, y) => x.rank.equals(y.rank)}
@@ -83,6 +93,7 @@ object RoyalStraightFlush extends PokerHandValidator {
 sealed case class WinningHand(name: String, strength: Int, card: Card) extends Ordered[WinningHand] {
   override def compare(that: WinningHand): Int = strength - that.strength
 }
+class HighCard(card: Card) extends WinningHand("High Card", 1, card)
 class OnePair(card: Card) extends WinningHand("One Pair", 2, card)
 class TwoPair(card: Card) extends WinningHand("Two Pair", 3, card)
 class ThreeOfAKind(card: Card) extends WinningHand("Three Of A Kind", 4, card)
