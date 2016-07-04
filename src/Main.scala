@@ -16,13 +16,13 @@ object Main {
 //
 //    test("H-4 H-Q S-Q D-Q C-Q", "Four Of A Kind", "S-Q")
 //
-//    test("S-5 S-3 S-6 S-2 S-4", "Straight Flush", "S-6")
+    test("S-5 S-3 S-6 S-2 S-4", "Straight Flush", "S-6")
 //
 //    test("S-J S-Q S-A S-K S-10", "Royal Straight Flush", "S-A")
   }
 
   def test(input: String, winningHand: String, winningCard: String): Unit = {
     val actual = Player(input).judge
-    assert(winningHand == actual._1 && winningCard == actual._2, input)
+    assert(winningHand == actual._1 && winningCard == actual._2, "input: %s, expected: %s, actual: %s".format(input, (winningHand, winningCard), (actual._1, actual._2)))
   }
 }

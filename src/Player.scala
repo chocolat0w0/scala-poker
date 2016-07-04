@@ -6,7 +6,7 @@ case class Player(cardsStr: String) {
     * @return (役名、役を構成するカードで最も強いもの)
     */
   def judge: (String, String) = {
-    val validator = Seq(Straight, Flush)
+    val validator = Seq(Straight, Flush, StraightFlush)
     val winningHand = validator.flatMap(_.isValid(hands)).max
     (winningHand.name, winningHand.card.str)
   }
